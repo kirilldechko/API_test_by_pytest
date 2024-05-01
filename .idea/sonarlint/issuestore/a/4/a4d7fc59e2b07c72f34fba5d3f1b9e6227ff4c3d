@@ -1,0 +1,13 @@
+
+Mpython:S1066Ô"/Merge this if statement with the enclosing one.(ï¬¨•ûÿÿÿÿ
+wpython:S1186Ç"YAdd a nested comment explaining why this method is empty, or complete the implementation.(«¥Ö˜úÿÿÿÿ
+Qpython:S5754á"8Catch a more specific exception or reraise the exception(Ÿ­˜§
+rpython:S1186›"YAdd a nested comment explaining why this method is empty, or complete the implementation.(ä¸’°
+wpython:S1186"YAdd a nested comment explaining why this method is empty, or complete the implementation.(ÇÏ½üÿÿÿÿ
+wpython:S1186¡"YAdd a nested comment explaining why this method is empty, or complete the implementation.(¹Ğœºüÿÿÿÿ
+xpython:S117ó"`Rename this local variable "Failure__init__" to match the regular expression ^[_a-z][a-z0-9_]*$.(Ú¯ô´
+mpython:S3776ï"TRefactor this function to reduce its Cognitive Complexity from 16 to the 15 allowed.(Õ˜‚Ó
+tpython:S117ü"WRename this parameter "captureVars" to match the regular expression ^[_a-z][a-z0-9_]*$.(¼ÛØÀúÿÿÿÿ
+Npython:S1172š"5Remove the unused function parameter "expected_text".(Å¾ß
+Epython:S1172š",Remove the unused function parameter "text".(Å¾ß
+gpython:S1542š"NRename function "assertIn" to match the regular expression ^[a-z_][a-z0-9_]*$.(Å¾ß
