@@ -1,2 +1,0 @@
-Incorrect data: {'name': 123}
-Your token wasn't created, you used incorrect data!

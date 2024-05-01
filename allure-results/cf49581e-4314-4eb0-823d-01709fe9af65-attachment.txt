@@ -1,2 +1,0 @@
-Incorrect test dada
-Object with data: Вечер пятницы, утро субботы 5 wasn't created.
