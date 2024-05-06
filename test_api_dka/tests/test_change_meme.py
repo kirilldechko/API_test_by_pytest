@@ -1,5 +1,5 @@
 import allure
-from tests.test_data.bodies_for_tests import test_names
+from test_data.bodies_for_tests import test_names
 
 
 @allure.feature("Change meme")

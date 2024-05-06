@@ -1,5 +1,5 @@
 import allure
-from tests.test_data.bodies_for_tests import test_names, body_meme
+from test_data.bodies_for_tests import test_names
 
 
 @allure.feature("Delete meme")

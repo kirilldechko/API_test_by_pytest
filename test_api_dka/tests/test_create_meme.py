@@ -1,5 +1,5 @@
 import allure
-from tests.test_data.bodies_for_tests import test_body, body_meme
+from test_data.bodies_for_tests import test_body, body_meme
 import pytest
 
 
