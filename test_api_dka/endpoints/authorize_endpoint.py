@@ -31,6 +31,6 @@ class AuthorizePost(ParentEndpoint):
             f"{self.url}/authorize/{token}"
         )
         if self.response.status_code != 200:
-            print("Your token wasn't created, you used incorrect data!")
+            print("Your token wasn't created, you used incorrect data.")
         else:
             assert self.response.status_code == 200
