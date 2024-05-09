@@ -1,4 +1,0 @@
-Unexpected status 400
-Incorrect request, <Response [400]>
-Object with data: Вечер пятницы, утро субботы 10 wasn't created.
-Unexpected status 404

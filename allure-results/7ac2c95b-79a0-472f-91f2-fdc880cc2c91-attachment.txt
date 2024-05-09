@@ -1,2 +1,0 @@
-<Response [404]>
-Unexpected status 404

@@ -1,3 +1,0 @@
-Test body is: {'text': 'Вечер пятницы, утро субботы 7', 'tags': ['friday', 'relax', "Anthony Edward 'Tony' Stark"], 'info': {'person': 'Brian Wood'}}
-Can't create a meme, no 'url' key in test body'.
-Unexpected status 400
