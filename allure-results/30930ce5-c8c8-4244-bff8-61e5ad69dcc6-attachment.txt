@@ -1,0 +1,3 @@
+Test body is: {'url': 'https://sun9-13.userapi.com/impg/7baXWqxpMPVvxz7rmJJnV8cFs6yiO1PFsGsXRQ/aZHzlt82_fU.jpg?size=929x905&quality=96&sign=5b9cf9b9b3e0f46cd9ace6b023249eef&c_uniq_tag=hnaqx8M-kYqa_hhwuzvy8dcNsizvftoC_ET1PIvZH94&type=album', 'tags': 123, 'info': {'person': 'Brian Wood'}}
+Can't create a meme, no 'text' key in test body'.
+Unexpected status 400
