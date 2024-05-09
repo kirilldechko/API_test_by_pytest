@@ -31,3 +31,6 @@ F
 tests/test_get_meme.py,b\7\b7e88bb464140667ddce59505c147cfe0be7101f
 I
 tests/test_delete_meme.py,e\f\ef85d90f6e12643e1a2103962a7018445ceaacbc
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
