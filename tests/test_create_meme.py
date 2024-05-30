@@ -1,10 +1,10 @@
 import allure
-from test_data.bodies_for_tests import test_body, body_meme
+from test_data.bodies_for_tests import test_body, body_meme, incorrect_boby, incorrect_body_meme
 import pytest
 
 
 @allure.feature("Create memes")
-@allure.story("Create new meme")
+@allure.story("Positive tests")
 @allure.title("Create meme with valid data")
 @pytest.mark.parametrize("test_body", test_body)
 def test_create_new_meme(test_body, check_token, create_meme_endpoint, delete_meme_endpoint):
@@ -14,15 +14,15 @@ def test_create_new_meme(test_body, check_token, create_meme_endpoint, delete_me
 
 
 @allure.feature("Create memes")
-@allure.story("Create meme without required fields")
+@allure.story("Negative tests")
 @allure.title("Create meme without required fields")
-@pytest.mark.parametrize("test_body", test_body)
+@pytest.mark.parametrize("test_body", incorrect_boby)
 def test_create_new_meme_without_req_fild(test_body, check_token, create_meme_endpoint):
-    create_meme_endpoint.create_meme_req_field(test_body, check_token)
+    create_meme_endpoint.create_meme_invalid_data(test_body, check_token)
 
 
 @allure.feature("Create memes")
-@allure.story("Create meme without the required fields")
-@allure.title("Create meme without the required fields_2")
-def test_create_new_meme_without_requirement_fild(check_token, create_meme_endpoint):
-    create_meme_endpoint.create_meme_req_field(body_meme, check_token)
+@allure.story("Negative tests")
+@allure.title("Create meme with incorrect data (no key)")
+def test_create_new_meme_with_incorrect_data(check_token, create_meme_endpoint):
+    create_meme_endpoint.create_meme_invalid_data(body_meme, check_token)

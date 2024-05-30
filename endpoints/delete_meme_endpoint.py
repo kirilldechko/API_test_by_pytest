@@ -16,7 +16,7 @@ class DeleteMeme(ParentEndpoint):
                 'Authorization': token
             }
         )
-        self.check_status_200()
+        print(self.response)
         self.response = requests.get(
             f"{self.url}/meme/{meme_id}")
-        # self.check_status_200()
+        self.check_status_non_200()

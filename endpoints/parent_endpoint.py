@@ -9,15 +9,13 @@ class ParentEndpoint:
 
     @allure.step('Check meme text')
     def check_obj_text(self, text):
-        if self.response.status_code != 200:
-            print(f"Object with data: {text} wasn't created.")
-        else:
-            assert self.obj_json['text'] == text, f"Object with data: {text} wasn't created'"
+        assert self.obj_json['text'] == text, f"Object with data: {text} wasn't created'"
 
-    @allure.step('Check request status code (200).')
+    @allure.step('Check request status code 200.')
     def check_status_200(self):
-        if self.response.status_code == 200:
-            return True
-        else:
-            print(f"Unexpected status {self.response.status_code}")
-            return False
+        assert self.response.status_code == 200, "Incorrect status code, expect 200, check request data"
+
+    @allure.step('Check request status code, non 200.')
+    def check_status_non_200(self):
+        assert self.response.status_code != 200, "Unexpected status code, expect 400, 500..."
+

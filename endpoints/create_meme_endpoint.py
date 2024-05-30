@@ -19,15 +19,15 @@ class CreateMeme(ParentEndpoint):
                 'Authorization': token
             }
         )
-        if self.check_status_200():
-            self.obj_json = self.response.json()
-            self.obj_id = self.obj_json['id']
-            return self.obj_id
-        else:
-            print(f"Incorrect request, {self.response}")
+        self.check_status_200()
+        self.obj_json = self.response.json()
+        self.obj_id = self.obj_json['id']
+        assert self.obj_json['text'] == body['text']
+        print(self.obj_json['text'])
+        return self.obj_id
 
-    @allure.step('Create a new meme with no required fields.')
-    def create_meme_req_field(self, body, token):
+    @allure.step('Create a new meme with invalid data.')
+    def create_meme_invalid_data(self, body, token):
         random_key = random.choice(list(body.keys()))  # Получаем случайный ключ
         body.pop(random_key)  # Удаляем ключ из словаря
         self.response = requests.post(
@@ -37,19 +37,4 @@ class CreateMeme(ParentEndpoint):
                 'Authorization': token
             }
         )
-        print(f"Test body is: {body}")
-        print(f"Can't create a meme, no '{random_key}' key in test body'.")
-        self.check_status_200()
-
-    @allure.step('Create a new meme with no required fields.')
-    def create_meme_incorrect_data(self, body, token):
-        random_key = random.choice(list(body.keys()))  # Получаем случайный ключ
-        body.pop(random_key)  # Удаляем ключ из словаря
-        self.response = requests.post(
-            f'{self.url}/meme',
-            json=body,
-            headers={
-                'Authorization': token
-            }
-        )
-        self.check_status_200()
+        self.check_status_non_200()
