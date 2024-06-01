@@ -15,7 +15,7 @@ class ParentEndpoint:
     def check_status_200(self):
         assert self.response.status_code == 200, "Incorrect status code, expect 200, check request data"
 
-    @allure.step('Check request status code, non 200.')
-    def check_status_non_200(self):
-        assert self.response.status_code != 200, "Unexpected status code, expect 400, 500..."
+    @allure.step('Check request status code, 4__.')
+    def check_status_400(self):
+        assert self.response.status_code in [400, 401, 403, 404,], "ERROR! Unexpected status code"
 

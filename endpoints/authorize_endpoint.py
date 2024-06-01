@@ -20,7 +20,7 @@ class AuthorizePost(ParentEndpoint):
     @allure.step('User authorize with incorrect name.')
     def authorize_incorrect_name(self, name):
         self.response = requests.post(f"{self.url}/authorize", json=name)
-        self.check_status_non_200()
+        self.check_status_400()
 
     @allure.step('Check correct token.')
     def check_token_by_token(self, token):
@@ -34,4 +34,5 @@ class AuthorizePost(ParentEndpoint):
         self.response = requests.get(
             f"{self.url}/authorize/{token}"
         )
-        self.check_status_non_200()
+        print(self.response)
+        self.check_status_400()

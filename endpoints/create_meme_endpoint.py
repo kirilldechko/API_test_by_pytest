@@ -37,4 +37,5 @@ class CreateMeme(ParentEndpoint):
                 'Authorization': token
             }
         )
-        self.check_status_non_200()
+        print(self.response)
+        self.check_status_400()
