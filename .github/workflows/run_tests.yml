@@ -1,1 +1,22 @@
+# 1. указываем имя
+name: Python autotests
 
+# 2. Указываем как запускаются тесты
+on: [push]
+
+# 3. Настраиваем jobs
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    name: Run autotests
+    steps: # 4. Описываем шаги (steps)
+      - name: Checkout autotests # Скачиваем репозиторий
+        uses: actions/checkout@v4 # нужна последняя версия, берем из https://github.com/actions/checkout
+      - name: Set up Python enviroment # устанавливаем Python
+        uses: actions/setup-python@v5  # нужна последняя версия, берем из https://github.com/actions/setup-python
+        with:
+          python-version: '3.13'
+      - name: Install dependencies # установка зависимостей
+        run: pip install -r requirements.txt # установка модулей из requirements.txt
+      - name: run tests # запуск тестов
+        run: pytest # запуск тестов
