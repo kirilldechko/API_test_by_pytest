@@ -2,8 +2,20 @@
 name: Python autotests
 
 # 2. Указываем как запускаются тесты
-on: [push]
-
+on:
+  workflow_dispatch:
+    inputs:
+      deployment_target: 
+        description: choose tests set
+        required: true
+        type: choice
+        default: smoke
+        options:
+          - smoke
+          - regression
+          - extendet
+          - all
+        
 # 3. Настраиваем jobs
 jobs:
   run-tests:
