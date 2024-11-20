@@ -1,7 +1,5 @@
-# 1. указываем имя
 name: Python autotests
 
-# 2. Указываем как запускаются тесты
 on:
   workflow_dispatch:
     inputs:
@@ -16,19 +14,18 @@ on:
           - extendet
           - all
         
-# 3. Настраиваем jobs
 jobs:
   run-tests:
     runs-on: ubuntu-latest
     name: Run autotests
-    steps: # 4. Описываем шаги (steps)
-      - name: Checkout autotests # Скачиваем репозиторий
-        uses: actions/checkout@v4 # нужна последняя версия, берем из https://github.com/actions/checkout
-      - name: Set up Python enviroment # устанавливаем Python
-        uses: actions/setup-python@v5  # нужна последняя версия, берем из https://github.com/actions/setup-python
+    steps:
+      - name: Checkout autotests
+        uses: actions/checkout@v4
+      - name: Set up Python enviroment
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install dependencies # установка зависимостей
-        run: pip install -r requirements.txt # установка модулей из requirements.txt
-      - name: run tests # запуск тестов
-        run: pytest # запуск тестов
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: run tests
+        run: pytest
