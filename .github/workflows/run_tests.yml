@@ -27,7 +27,7 @@ jobs:
       - name: Set up Python enviroment # устанавливаем Python
         uses: actions/setup-python@v5  # нужна последняя версия, берем из https://github.com/actions/setup-python
         with:
-          python-version: '3.13'
+          python-version: '3.11'
       - name: Install dependencies # установка зависимостей
         run: pip install -r requirements.txt # установка модулей из requirements.txt
       - name: run tests # запуск тестов
