@@ -51,11 +51,22 @@ jobs:
       - name: Install Allure # установка allure
         run: sudo wget https://github.com/allure-framework/allure2/releases/download/2.24.0/allure-2.24.0.tgz && sudo tar -zxvf allure-2.24.0.tgz -C /opt/ && sudo ln -s /opt/allure-2.24.0/bin/allure /usr/bin/allure
       - name: Generate Allure Report  # генерация отчета в allure
-        run: allure generate -c allure-results -o allure-report
+        run: allure generate -c allure-results -o _site  # (_site - для генерации отчета и просмотра его в GitHub)
       - name: Save Allure Report # сохранение отчета для просмотра
         uses: actions/upload-artifact@v4
         with:
-          name: allure-report
-          path: allure-report
+          name: _site
+          path: _site
           retention-days: 1 # количество дней хранения отчета
-      
+
+  publish-report: # Настраиваем отображение отчета на GitHub
+    name: Report publication
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifacts
+        uses:  actions/download artifact@v3
+      - name: Upload Pages artifacts
+        uses: actions/upload-pages-artifact@v2
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1.2.9
