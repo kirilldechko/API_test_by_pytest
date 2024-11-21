@@ -29,29 +29,33 @@ jobs:
         run: pip install -r requirements.txt
       - name: run all tests
         if: "github.event.inputs.deployment_target == 'all'"
-        run: pytest --alluredir=allure-results
+        run: pytest --alluredir=allure-results  # запуск всех тестов и генерация отчета
+        continue-on-error: true  # продолжать если тетс завершился ошибкой
       - name: run smoke tests
         if: "github.event.inputs.deployment_target == 'smoke'"
         run: pytest -m smoke --alluredir=allure-results
+        continue-on-error: true
       - name: run regression tests
         if: "github.event.inputs.deployment_target == 'regression'"
         run: pytest -m regression --alluredir=allure-results
+        continue-on-error: true
       - name: run extended tests
         if: "github.event.inputs.deployment_target == 'extended'"
         run: pytest -m extended --alluredir=allure-results
-      - name: Install Java
+        continue-on-error: true
+      - name: Install Java # установка java для работы с allure reports
         uses: actions/setup-java@v3
         with:
           distribution: 'microsoft'
           java-version: '17'
-      - name: Install Allure
+      - name: Install Allure # установка allure
         run: sudo wget https://github.com/allure-framework/allure2/releases/download/2.24.0/allure-2.24.0.tgz && sudo tar -zxvf allure-2.24.0.tgz -C /opt/ && sudo ln -s /opt/allure-2.24.0/bin/allure /usr/bin/allure
-      - name: Generate Allure Report
+      - name: Generate Allure Report  # генерация отчета в allure
         run: allure generate -c allure-results -o allure-report
-      - name: Save Allure Report
+      - name: Save Allure Report # сохранение отчета для просмотра
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
           path: allure-report
-          retention-days: 1
+          retention-days: 1 # количество дней хранения отчета
       
