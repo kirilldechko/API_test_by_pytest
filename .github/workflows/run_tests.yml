@@ -11,7 +11,7 @@ on:
         options:
           - smoke
           - regression
-          - extendet
+          - extended
           - all
         
 jobs:
