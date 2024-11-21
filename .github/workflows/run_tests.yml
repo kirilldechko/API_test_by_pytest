@@ -13,7 +13,10 @@ on:
           - regression
           - extended
           - all
-        
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 jobs:
   run-tests:
     runs-on: ubuntu-latest
@@ -65,9 +68,9 @@ jobs:
     needs: run-tests
     steps:
       - name: Download Artifacts
-        uses:  actions/download artifact@v3
-      - name: Upload Pages artifacts
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/download-artifact@v4
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1.2.9
+        uses: actions/deploy-pages@v4
